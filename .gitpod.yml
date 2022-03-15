@@ -10,8 +10,7 @@ ports:
     
 tasks:
   - name: setup
-    init: |
-      npm install --save-dev browser-sync-webpack-plugin webpack-cli
+    before: npm install --save-dev browser-sync-webpack-plugin webpack-cli
   - openMode: split-right
     command: >
       apachectl start && ./node_modules/.bin/webpack --watch
