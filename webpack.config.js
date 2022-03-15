@@ -19,7 +19,7 @@ module.exports = {
           target: `http://localhost:${PROXY_PORT}`
         },
         // Add other file types to be hot reloaded here in this array 
-        files: ["**/*.php", "**/*.html"],
+        files: ["**/*.html"],
         notify: true,
         port: BS_PORT,
         socket: {
