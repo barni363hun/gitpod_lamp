@@ -18,3 +18,5 @@ tasks:
       gp await-port 3306 &&
       apachectl start &&
       ./node_modules/.bin/webpack --watch
+  - name: user commands
+    openMode: split-left
