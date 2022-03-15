@@ -10,7 +10,7 @@ ports:
     
 tasks:
   - name: setup
-    before: npm install --save-dev browser-sync-webpack-plugin webpack-cli
+    before: npm install --save-dev browser-sync-webpack-plugin webpack-cli && gp sync-done npmdone
   - openMode: split-right
     command: >
-      apachectl start && ./node_modules/.bin/webpack --watch
+      gp sync-await npmdone && gp await-port 3306 apachectl start && ./node_modules/.bin/webpack --watch
