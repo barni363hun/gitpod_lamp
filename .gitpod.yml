@@ -4,10 +4,13 @@ ports:
   - port: 3306
     onOpen: ignore
   - port: 8001
+    onOpen: ignore
+  - port: 3005
     onOpen: open-preview
     
 tasks:
   - name: setup
+    before: npm install --save-dev browser-sync-webpack-plugin webpack-cli && gp sync-done npmdone
+  - openMode: split-right
     command: >
-      apachectl start &&
-      gp open public/index.php
+      gp sync-await npmdone && gp await-port 3306 && apachectl start && ./node_modules/.bin/webpack --watch
