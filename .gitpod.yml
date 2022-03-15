@@ -8,7 +8,8 @@ ports:
     
 tasks:
   - name: setup
-    init: npm install browser-sync --save-dev
+    init: |
+      npm install --save-dev browser-sync webpack-cli browser-sync-webpack-plugin
+  - openMode: split-right
     command: >
-      apachectl start &&
-      gp open public/index.php
+      apachectl start && ./node_modules/.bin/webpack --watch
