@@ -8,6 +8,7 @@ ports:
     
 tasks:
   - name: setup
+    init: npm install browser-sync --save-dev
     command: >
       apachectl start &&
       gp open public/index.php
